@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Signup from './components/Signup'
+import AvatarUploadComponent from './components/AvatarUploadComponent'
+import DribbbleOnboardingComponent from './components/DribbbleOnboardingComponent'
+import VerifyEmail from './components/VerifyEmail'
+import { BrowserRouter, Routes , Route } from 'react-router-dom'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Signup/>}/>
+      <Route path="/AvatarUploadComponent" element={<AvatarUploadComponent/>}/>
+      <Route path="/DribbbleOnboardingComponent" element={<DribbbleOnboardingComponent/>}/>
+      <Route path="/VerifyEmail" element={<VerifyEmail/>}/>
+    </Routes>
+    </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App
