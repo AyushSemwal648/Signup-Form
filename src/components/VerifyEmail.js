@@ -1,12 +1,13 @@
 import React from 'react';
-
+import { useLocation } from 'react-router-dom';
 import Footer from './Footer';
 import Header from './Header';
 
 
 const VerifyEmail = () => {
   
-
+const location = useLocation();
+const email = location.state?.email || '';
 
   return (
     <div className='h-screen w-screen bg-gray-100'>
@@ -20,7 +21,7 @@ const VerifyEmail = () => {
         <p className="text-gray-600 mb-4">
           Please verify your email address. We've sent a confirmation email to:
         </p>
-        <p className="text-gray-800 font-medium mb-6">account@refero.design</p>
+        <p className="text-gray-800 font-medium mb-6">{email}</p>
         <p className="text-gray-600 mb-4">
           Click the confirmation link in that email to begin using Dribbble.
         </p>

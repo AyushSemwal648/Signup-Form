@@ -13,9 +13,9 @@ const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your sign-up logic here
+    
     console.log('Submitted:', { name, username, email, password, termsAccepted });
-    navigate("/AvatarUploadComponent");
+    navigate("/AvatarUploadComponent", { state: {email}});
   };
   return (
     <div className='w-full h-screen flex flex-auto'>

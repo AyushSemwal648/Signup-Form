@@ -1,23 +1,25 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 const AvatarUploadComponent = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [avatar, setAvatar] = useState(null);
-  const [location, setLocation] = useState("");
+  const [address, setAddress] = useState("");
+  const email = location.state?.email;
 
   const handleAvatarUpload = (event) => {
     setAvatar(event.target.files[0]);
   };
 
   const handleLocationChange = (event) => {
-    setLocation(event.target.value);
+    setAddress(event.target.value);
   };
 
   const handleNextClick = () => {
-    // Implement your logic to handle the next step
+    
     console.log("Avatar:", avatar);
-    console.log("Location:", location);
-    navigate("/DribbbleOnboardingComponent");
+    console.log("Location:", address);
+    navigate("/DribbbleOnboardingComponent" , {state: {email}} );
   };
 
   return (
@@ -91,7 +93,7 @@ const AvatarUploadComponent = () => {
             type="text"
             className="w-full mb-4 mt-4 px-4 py-2 border-b-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter a location"
-            value={location}
+            value={address}
             onChange={handleLocationChange}
           />
         </div>

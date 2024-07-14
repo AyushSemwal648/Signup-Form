@@ -1,14 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const DribbbleOnboardingComponent = () => {
 
 const navigate = useNavigate();
+const location = useLocation();
+const email = location.state?.email;
 
 const handleNextClick = () => {
   // Implement your logic to handle the next step
   
-  navigate("/VerifyEmail");
+  navigate("/VerifyEmail", {state: {email}});
 };
 
   return (
